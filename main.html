@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>GRE Essay Tool</title>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+  <h2>GRE Essay Tool</h2>
+  <textarea id="evaluatedText" rows="10" cols="50" placeholder="Start writing your essay..." autofocus></textarea>
+  <h3 id="wordCount">0</h3>
 
+  <script>
+    const evaluatedText = document.getElementById('evaluatedText');
+    const wordCount = document.getElementById('wordCount');
+
+    evaluatedText.addEventListener('input', updateWordCount);
+
+    function updateWordCount() {
+      const text = evaluatedText.value.trim();
+      const words = text === '' ? 0 : text.split(/\s+/).length;
+      wordCount.textContent = words;
+    }
+  </script>
 </body>
-
 </html>
